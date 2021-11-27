@@ -6,6 +6,10 @@ class CreateBlog extends StatefulWidget {
 }
 
 class _CreateBlogState extends State<CreateBlog> {
+
+late String authorName, title, desc;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +47,33 @@ class _CreateBlogState extends State<CreateBlog> {
                 borderRadius: BorderRadius.circular(6)),
               width: MediaQuery.of(context).size.width,
               child: Icon(Icons.add_a_photo, color:Colors.black45,
-              )
-            ,)
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 16),
+              child: Column(children: <Widget>[
+              TextField(
+                decoration: InputDecoration(hintText: "Author Name"),
+                onChanged: (val){
+                  authorName = val;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(hintText: "Title"),
+                onChanged: (val){
+                  title = val;
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(hintText: "Desc"),
+                onChanged: (val){
+                  desc = val;
+                },
+              ),
+            ],),)
           ],
         ),
       ),
